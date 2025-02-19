@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 
+.\venv\Scripts\activate
+
 # Запуск скрипта генерации данных
 python data_generation.py
 

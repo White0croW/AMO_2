@@ -7,6 +7,7 @@ model = joblib.load("model.pkl")
 
 # Загрузка предобработанных тестовых данных
 test_data_scaled = np.loadtxt("processed/test_data_scaled.csv", delimiter=",")
+test_data_scaled = test_data_scaled.reshape(-1, 1)
 
 # Прогнозирование
 predictions = model.predict(test_data_scaled)
