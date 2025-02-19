@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # Запуск скрипта генерации данных
 python data_generation.py
