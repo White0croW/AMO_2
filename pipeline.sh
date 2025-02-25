@@ -1,16 +1,23 @@
 #!/bin/bash
 set -x
 
-venv\Scripts\activate
+# Activate the virtual environment
+source venv/Scripts/activate
 
-# Запуск скрипта генерации данных
+# Install dependencies if not already installed
+pip install -r requirements.txt
+
+# Run the data generation script
 python data_generation.py
 
-# Запуск скрипта предобработки данных
+# Run the data preprocessing script
 python model_preprocessing.py
 
-# Запуск скрипта обучения модели
+# Run the model training script
 python model_training.py
 
-# Запуск скрипта тестирования модели
+# Run the model testing script
 python model_testing.py
+
+# Deactivate the virtual environment
+deactivate
