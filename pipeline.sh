@@ -1,6 +1,6 @@
 #!/bin/bash
 python3 -m venv venv  # Создаем виртуальное окружение
-source venv/bin/activate  # Активируем его
+.source venv/bin/activate  # Активируем его
 pip install -r requirments
 
 echo "---- 1. Генерация данных ----"
