@@ -1,23 +1,20 @@
 #!/bin/bash
-set -x
+python3 -m venv venv  # Создаем виртуальное окружение
+source venv/bin/activate  # Активируем его
 
-# Activate the virtual environment
-source venv/Scripts/activate
+echo "---- 1. Генерация данных ----"
+python3 data_generation.py || { echo "Ошибка генерации данных" >&2; exit 1; }
 
-# Install dependencies if not already installed
-pip install -r requirements.txt
+echo "---- 2. Предобработка данных ----"
+python3 model_preprocessing.py || { echo "Ошибка предобработки" >&2; exit 1; }
 
-# Run the data generation script
-python data_generation.py
+echo "---- 3. Обучение модели ----"
+python3 model_preprocessing.py || { echo "Ошибка обучения" >&2; exit 1; }
 
-# Run the data preprocessing script
-python model_preprocessing.py
+echo "---- 4. Тестирование модели ----"
+python3 model_testing.py || { echo "Ошибка тестирования" >&2; exit 1; }
 
-# Run the model training script
-python model_training.py
-
-# Run the model testing script
-python model_testing.py
+echo "Конвейер успешно завершен!"
 
 # Deactivate the virtual environment
 deactivate
