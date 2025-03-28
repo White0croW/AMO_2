@@ -1,7 +1,7 @@
 #!/bin/bash
 python3 -m venv venv  # Создаем виртуальное окружение
 source venv/bin/activate  # Активируем его
-pip install -r AMO_2/requirments
+pip install -r AMO_2/requirments.txt
 
 echo "---- 1. Генерация данных ----"
 python3 AMO_2/data_generation.py || { echo "Ошибка генерации данных" >&2; exit 1; }
